@@ -1,4 +1,6 @@
 # machine-learning-musing
-Experiments involving machine learning models
 
-A repository to show different machine learning models, optimizations, hyper-parameter tunings, etc.
+## Experiments involving machine learning models
+
+A repository to show different machine learning models, optimizations, hyper-parameter tunings, dealing with imbalanced datasets, etc.
+
