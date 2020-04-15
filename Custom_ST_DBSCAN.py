@@ -21,18 +21,6 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 
 
-'''
-
-Refer-
-https://stellasia.github.io/blog/2020-02-02-wrapping-custom-mode-into-sklearn-estimator/
-https://leoliu1221.wordpress.com/2016/12/13/how-to-make-custom-estimator-class-and-custom-scorer-to-do-cross-validation-using-sklearn-api-on-your-custom-model/
-http://danielhnyk.cz/creating-your-own-estimator-scikit-learn/
-https://towardsdatascience.com/building-a-custom-model-in-scikit-learn-b0da965a1299
-
-G: creating custom estimator sklearn
-'''
-
-
 
 
 class ST_DBSCAN(BaseEstimator, TransformerMixin):
