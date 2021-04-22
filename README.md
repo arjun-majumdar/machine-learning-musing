@@ -1,4 +1,4 @@
-# machine-learning-musing
+# machine learning musing
 
 ## Experiments involving machine learning models
 
@@ -11,4 +11,5 @@ Demonstration of various topics related to machine learning data science such as
 1. stacked models
 1. approximating mathematical function(s) using neural networks
 1. data science project(s)
+2. Apache Spark for Machine Learning - PySpark + MLlib
 
