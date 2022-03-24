@@ -1,0 +1,13 @@
+Why is Euclidean distance not a good metric in high dimensions?
+
+
+https://stats.stackexchange.com/questions/99171/why-is-euclidean-distance-not-a-good-metric-in-high-dimensions
+
+https://stats.stackexchange.com/questions/29627/euclidean-distance-is-usually-not-good-for-sparse-data-and-more-general-case
+
+https://homes.cs.washington.edu/%7Epedrod/papers/cacm12.pdf
+
+https://www.mdpi.com/1099-4300/22/10/1105
+
+and many more excellent answers and related URLs!
+
