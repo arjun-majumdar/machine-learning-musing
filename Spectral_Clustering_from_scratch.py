@@ -162,6 +162,20 @@ U_subset = U[:, 0:3]
 
 
 # Step-3: Do K-Means clustering-
+"""
+The difference is that you apply K-Means to the top eigen-vectors of matrix
+'M' (normalized, adjacency matrix), instead of just compuing K-Means on
+original dataset.
+K-Means is good at finding linearly separable clusters.
+
+Performance of Spectral clustering heavily depends on-
+1. 'r' ('r_hyperparam') in the exponential function
+2. distance metric used (in 'cdist')
+
+Tune these to find 'good' clusters for your input dataset. Explore
+hyper-parameter tuning techniques, viz., Bayesian optimization, GridSearchCV,
+etc. to help.
+"""
 model_km = KMeans(n_clusters = 3)
 pred_spec_manual = model_km.fit_predict(normalize(U_subset))
 # normalize each row to 1.0
