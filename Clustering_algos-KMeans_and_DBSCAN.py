@@ -176,6 +176,9 @@ num, cnt = np.unique(labels, return_counts = True)
 num, cnt
 # (array([-1,  0,  1,  2]), array([   23, 33323, 33330, 33324]))
 
+
+# Probably UMAP algo is better for dimensionality reduction, but I was lazy to do pip/conda install?!
+
 # Use TSNE for dimensionality reduction-
 tsne_model = TSNE(
     n_components = 3, perplexity = 30.0,
