@@ -164,9 +164,27 @@ eps = 0.700, # of clusters = 3 & avg silhouette score = 0.7513
 eps = 0.800, # of clusters = 3 & avg silhouette score = 0.7572
 eps = 0.900, # of clusters = 3 & avg silhouette score = 0.7652
 '''
-del db_model
+del db_model, labels, sil_avg, core_samples_mask, e
 
-# Initialize a new model with 'optimal' parameters-
+
+# Initialize and train a new DBSCAN model with 'optimal' parameters-
+"""
+Valid values for metric are-
+
+- From scikit-learn: [‘cityblock’, ‘cosine’, ‘euclidean’, ‘l1’, ‘l2’, ‘manhattan’]. These metrics
+support sparse matrix inputs. [‘nan_euclidean’] but it does not yet support sparse matrices.
+
+- From scipy.spatial.distance: [‘braycurtis’, ‘canberra’, ‘chebyshev’, ‘correlation’, ‘dice’,
+‘hamming’, ‘jaccard’, ‘kulsinski’, ‘mahalanobis’, ‘minkowski’, ‘rogerstanimoto’, ‘russellrao’,
+‘seuclidean’, ‘sokalmichener’, ‘sokalsneath’, ‘sqeuclidean’, ‘yule’] See the documentation for 'scipy.spatial.distance' for details on these metrics. These metrics do not support sparse matrix inputs.
+
+Note that in the case of ‘cityblock’, ‘cosine’ and ‘euclidean’ (which are valid scipy.spatial.distance
+metrics), the scikit-learn implementation will be used, which is faster and has support for sparse
+matrices (except for ‘cityblock’). For a verbose description of the metrics from scikit-learn, see sklearn.metrics.pairwise.distance_metrics function.
+
+Refer-
+https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html#sklearn.metrics.pairwise_distances
+"""
 dbs_model = DBSCAN(eps = 0.9, min_samples = 20)
 labels = dbs_model.fit_predict(X_std)
 
@@ -176,8 +194,8 @@ num, cnt = np.unique(labels, return_counts = True)
 num, cnt
 # (array([-1,  0,  1,  2]), array([   23, 33323, 33330, 33324]))
 
+# Remember that -1 is for noise data points/samples.
 
-# Probably UMAP algo is better for dimensionality reduction, but I was lazy to do pip/conda install?!
 
 # Use TSNE for dimensionality reduction-
 tsne_model = TSNE(
@@ -190,6 +208,7 @@ tsne_model = TSNE(
 X_std_comp = tsne_model.fit_transform(X_std)
 
 
+# Visualize reduced data-
 plt.scatter(x = X_std_comp[:, 0], y = X_std_comp[:, 1], label = labels)
 plt.title("TSNE reduced dimensionality - DBSCAN clustering")
 plt.show()
