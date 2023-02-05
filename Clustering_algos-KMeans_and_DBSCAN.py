@@ -197,6 +197,8 @@ num, cnt
 # Remember that -1 is for noise data points/samples.
 
 
+# Probably, UMAP computes a better dimensionality reduction, but I was lazy to do pip/conda install umap-learn?!
+
 # Use TSNE for dimensionality reduction-
 tsne_model = TSNE(
     n_components = 3, perplexity = 30.0,
